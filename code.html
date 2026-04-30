@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb693",
+                    "primary-container": "#0f172a",
+                    "inverse-on-surface": "#263143",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface": "#081425",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#d8e3fb",
+                    "tertiary": "#b7c8e1",
+                    "on-error": "#690005",
+                    "surface-tint": "#bec6e0",
+                    "secondary-fixed": "#ffdbcc",
+                    "inverse-surface": "#d8e3fb",
+                    "secondary": "#ffb693",
+                    "surface-container-low": "#111c2d",
+                    "surface-container": "#152031",
+                    "on-secondary-container": "#572000",
+                    "on-primary-container": "#798098",
+                    "on-tertiary": "#213145",
+                    "inverse-primary": "#565e74",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary": "#bec6e0",
+                    "on-secondary-fixed": "#351000",
+                    "secondary-container": "#fe6b00",
+                    "surface-container-highest": "#2a3548",
+                    "surface-dim": "#081425",
+                    "surface-variant": "#2a3548",
+                    "on-tertiary-container": "#728299",
+                    "on-secondary": "#561f00",
+                    "outline": "#909097",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "background": "#081425",
+                    "on-primary": "#283044",
+                    "tertiary-container": "#06182b",
+                    "tertiary-fixed": "#d3e4fe",
+                    "primary-fixed": "#dae2fd",
+                    "primary-fixed-dim": "#bec6e0",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#2f3a4c",
+                    "surface-container-lowest": "#040e1f",
+                    "on-surface-variant": "#c6c6cd",
+                    "on-primary-fixed": "#131b2e",
+                    "on-surface": "#d8e3fb",
+                    "outline-variant": "#45464d",
+                    "surface-container-high": "#1f2a3c",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed-variant": "#38485d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin": "40px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "button-text": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "button-text": ["14px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .structural-gradient {
+            background: linear-gradient(135deg, rgba(8,20,37,1) 0%, rgba(15,23,42,1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-[#0F172A] border-b-2 border-slate-800 flat no shadows">
+<div class="text-2xl font-black tracking-tighter text-white">POWERTECH</div>
+<div class="hidden md:flex items-center gap-8 font-inter tracking-tight uppercase font-bold">
+<a class="text-orange-600 border-b-2 border-orange-600 pb-1 cursor-pointer active:scale-95 transition-all duration-150" href="#">Home</a>
+<a class="text-slate-400 hover:text-white hover:bg-slate-900 cursor-pointer active:scale-95 transition-all duration-150" href="#services">Services</a>
+<a class="text-slate-400 hover:text-white hover:bg-slate-900 cursor-pointer active:scale-95 transition-all duration-150" href="#">Projects</a>
+<a class="text-slate-400 hover:text-white hover:bg-slate-900 cursor-pointer active:scale-95 transition-all duration-150" href="#">Safety</a>
+<a class="text-slate-400 hover:text-white hover:bg-slate-900 cursor-pointer active:scale-95 transition-all duration-150" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white transition-all">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white transition-all">settings</span>
+<button class="hidden lg:block bg-secondary-container text-on-secondary-container px-6 py-2 font-button-text text-button-text uppercase active:scale-95 transition-transform">Request Quote</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-20 px-6 lg:px-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-30 mix-blend-luminosity" data-alt="Modern industrial facility with massive generators and complex electrical wiring under moody dramatic blue and orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXiNbZclur99qYEQTvikBVOUaP_q49YVoYRola37CoFNzlqP97tUIsG-0f5JVy4lzBjQssOmF9aramkcLM5z3RlyjXmjvVzXEiUNkEp8wtnte7FGQz2mYvx53r4m7VdPbBfDY1HtIEDMiHtKK7t7pFfMHGQ-qS6YQKJ4ruoxrk4I9PF7OG3AyqlvoRyzWizTI7WVjy_SCeG-TGbdoI_dGVJwpctDwmvgrcscXTxpU1mDG-w6pqyc-xsJvTEI_Akc0LdwYW02VHIG9o"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-3xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="h-1 w-12 bg-secondary-container"></span>
+<span class="text-label-caps font-label-caps text-secondary-container">ENGINEERED FOR UPTIME</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-white mb-6 leading-[1.1]">
+                PRECISION DG SET <br/>INSTALLATIONS &amp; <span class="text-secondary-container">ELECTRICAL MASTERY</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-10 max-w-xl">
+                Powertech provides heavy-duty mechanical and electrical contracting for critical infrastructure. We specialize in high-capacity DG systems, complex HSD piping, and industrial-grade electrical frameworks.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-secondary-container text-on-secondary-container px-8 py-4 font-button-text text-button-text uppercase text-center flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all" href="#contact">
+                    Get a Quote
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="border-2 border-outline-variant text-white px-8 py-4 font-button-text text-button-text uppercase text-center hover:bg-surface-variant active:scale-95 transition-all" href="#services">
+                    View Services
+                </a>
+</div>
+</div>
+</header>
+<!-- Metrics Bar -->
+<section class="bg-surface-container border-y border-outline-variant py-8">
+<div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:text-left">
+<div class="text-headline-md font-headline-md text-white">500+</div>
+<div class="text-label-caps font-label-caps text-on-primary-container">DG INSTALLS</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-headline-md font-headline-md text-white">2.5GW</div>
+<div class="text-label-caps font-label-caps text-on-primary-container">POWER MANAGED</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-headline-md font-headline-md text-white">100%</div>
+<div class="text-label-caps font-label-caps text-on-primary-container">SAFETY RATING</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-headline-md font-headline-md text-white">24/7</div>
+<div class="text-label-caps font-label-caps text-on-primary-container">SUPPORT READY</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 px-6 lg:px-24" id="services">
+<div class="mb-16">
+<p class="text-label-caps font-label-caps text-secondary-container mb-2">OUR CAPABILITIES</p>
+<h2 class="text-headline-lg font-headline-lg text-white">INDUSTRIAL SERVICES</h2>
+<div class="h-1 w-24 bg-secondary-container mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">precision_manufacturing</span>
+<h3 class="text-headline-md font-headline-md text-white mb-4">DG Set Installations</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Full-scale turnkey installation of diesel generator sets ranging from 10kVA to 3000kVA with structural foundation engineering.</p>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">plumbing</span>
+<h3 class="text-headline-md font-headline-md text-white mb-4">DG Piping</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Precision fuel, exhaust, and cooling piping systems designed for maximum efficiency and environmental compliance.</p>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">bolt</span>
+<h3 class="text-headline-md font-headline-md text-white mb-4">Electrical Work</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">LT/HT panel fabrication, cabling, earthing, and comprehensive power distribution systems for industrial complexes.</p>
+</div>
+<!-- Service Card 4 -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">settings_suggest</span>
+<h3 class="text-headline-md font-headline-md text-white mb-4">Mechanical Work</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Structural fabrication, heavy equipment rigging, and mechanical maintenance of cooling towers and heat exchangers.</p>
+</div>
+<!-- Service Card 5 -->
+<div class="bg-surface-container-high border border-outline-variant p-8 group hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-6">propane_tank</span>
+<h3 class="text-headline-md font-headline-md text-white mb-4">HSD Systems</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Complete High Speed Diesel storage solutions including underground tank installations and automated pumping systems.</p>
+</div>
+<!-- CTA Card -->
+<div class="bg-secondary-container p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-secondary mb-4">Need a Custom Solution?</h3>
+<p class="text-body-md font-body-md text-on-secondary/80">Our engineering team is ready to tackle your most complex industrial challenges.</p>
+</div>
+<a class="flex items-center gap-2 text-on-secondary font-button-text text-button-text uppercase mt-8 font-bold" href="#contact">
+                    Talk to an Expert
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Asymmetric Feature Section -->
+<section class="py-24 px-6 lg:px-24 bg-surface-container-lowest">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<img class="w-full h-[500px] object-cover border-2 border-outline-variant" data-alt="Technician in safety gear inspecting complex industrial machinery with orange safety lights and metallic textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZsqv3MI5JfKo0b7b6AnAdUC0WthjOETpi3wZw90eLyZrgi7p_31yr6heEaQ3NrVxYx-wfq1yM5-Tx7SC5Y4tdG8L88QWXaUl5cwCmyBlB6TVBsqUNAud2WR2TQutJ_x1F1IrCmY9C3Q3v8B02Q-9r442gLuyLVOw6vwkY8PgcVcSHlad01-W0EDw69aX84n1AKlNSvabaDvvTuQebyvt0YQNPx--xv8xlIM_WuFHXH9sRg3JXzlhCfgCznp5EFe_ObOHB89p8SDt5"/>
+<div class="absolute -bottom-6 -right-6 bg-secondary-container p-8 hidden md:block">
+<span class="text-headline-xl font-headline-xl text-on-secondary">0.0%</span>
+<p class="text-label-caps font-label-caps text-on-secondary">DOWNTIME RECORD</p>
+</div>
+</div>
+<div>
+<p class="text-label-caps font-label-caps text-secondary-container mb-2">WHY POWERTECH</p>
+<h2 class="text-headline-lg font-headline-lg text-white mb-6 uppercase">Machined Excellence In Every Detail</h2>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary-container">verified</span>
+</div>
+<div>
+<h4 class="text-body-lg font-bold text-white mb-1">Certified Safety Standards</h4>
+<p class="text-body-md text-on-surface-variant">Adherence to strict OSHA and ISO safety protocols ensures every site remains accident-free.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary-container">engineering</span>
+</div>
+<div>
+<h4 class="text-body-lg font-bold text-white mb-1">Expert Field Engineers</h4>
+<p class="text-body-md text-on-surface-variant">Our technicians are certified specialists with decades of collective experience in heavy machinery.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary-container">timer</span>
+</div>
+<div>
+<h4 class="text-body-lg font-bold text-white mb-1">Rapid Deployment</h4>
+<p class="text-body-md text-on-surface-variant">Efficient project management systems to meet aggressive timelines without compromising quality.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-24 px-6 lg:px-24" id="contact">
+<div class="max-w-5xl mx-auto bg-surface-container border border-outline-variant overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/3 bg-[#0F172A] p-10 flex flex-col justify-between border-r border-outline-variant">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-white mb-4">Let's Build.</h2>
+<p class="text-body-md text-on-surface-variant mb-10">Request a consultation or get a detailed quote for your next industrial project.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-container">call</span>
+<span class="text-white">+1 (800) POWER-TECH</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-container">mail</span>
+<span class="text-white">projects@powertech.ind</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-container">location_on</span>
+<span class="text-white">122 Industrial Plaza, Houston, TX</span>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<span class="text-label-caps font-label-caps text-on-primary-container">OFFICE HOURS: MON-SAT 08:00 - 20:00</span>
+</div>
+</div>
+<div class="md:w-2/3 p-10">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1">
+<label class="text-label-caps font-label-caps text-on-surface-variant block mb-2">FULL NAME</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 text-white p-3 transition-colors" placeholder="John Doe" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="text-label-caps font-label-caps text-on-surface-variant block mb-2">EMAIL ADDRESS</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 text-white p-3 transition-colors" placeholder="j.doe@company.com" type="email"/>
+</div>
+<div class="col-span-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant block mb-2">PHONE NUMBER</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 text-white p-3 transition-colors" placeholder="+1 000 000 000" type="tel"/>
+</div>
+<div class="col-span-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant block mb-2">MESSAGE / PROJECT DETAILS</label>
+<textarea class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 text-white p-3 transition-colors" placeholder="Tell us about your requirements..." rows="4"></textarea>
+</div>
+<div class="col-span-2 flex justify-end mt-4">
+<button class="bg-secondary-container text-on-secondary px-12 py-4 font-button-text text-button-text uppercase hover:brightness-110 active:scale-95 transition-all" type="submit">Send Inquiry</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0F172A] border-t-2 border-slate-800 py-12 px-6 w-full flex flex-col md:flex-row justify-between items-center gap-8 font-inter text-xs tracking-widest uppercase">
+<div class="text-lg font-black text-slate-500">IND-CONTRACTOR</div>
+<div class="flex flex-wrap justify-center gap-8 text-slate-500">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Safety Standards</a>
+<a class="hover:text-white transition-colors" href="#">MSDS Sheets</a>
+</div>
+<div class="text-slate-500 text-center md:text-right">
+            © 2024 INDUSTRIAL CORE CONTRACTING. ENGINEERED FOR UPTIME.
+        </div>
+</footer>
+</body></html>
