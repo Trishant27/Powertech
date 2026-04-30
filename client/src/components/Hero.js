@@ -55,7 +55,7 @@ const Hero = () => {
               </svg>
             </button>
             <button
-              onClick={scrollToContact}
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-transparent border-2 border-white/20 hover:border-orange hover:bg-orange/10 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition"
             >
               VIEW CAPABILITIES
