@@ -237,6 +237,7 @@ const ContactForm = () => {
                     <option>Electrical Integration</option>
                     <option>Mechanical Services</option>
                     <option>HSD Fuel Systems</option>
+                    <option>Unloading & Shifting</option>
                     <option>AMC Services</option>
                   </select>
                 </div>
