@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const SECTIONS = ['home', 'services', 'about', 'contact'];
 
-const LABELS = {
-  home: 'HOME',
-  services: 'SERVICES',
-  about: 'WHY POWERTECH',
-  contact: 'CONTACT',
-};
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -62,9 +55,11 @@ const Navbar = () => {
                 src="/Powertech-logo.png"
                 alt="Powertech Logo"
                 className="h-10 w-auto object-contain"
+                style={{ animation: 'logoPulse 3s ease-in-out infinite' }}
               />
               <span className="text-2xl font-black tracking-tight">
                 POWER<span className="text-orange">TECH</span>
+                <span className="text-white/50 text-sm font-bold">.co</span>
               </span>
             </button>
           </div>
@@ -79,7 +74,7 @@ const Navbar = () => {
                   activeSection === section ? 'text-orange' : 'text-white hover:text-orange'
                 }`}
               >
-                <span>{LABELS[section]}</span>
+                <span>{section}</span>
                 {/* Underline: always rendered, slides in/out with scaleX */}
                 <span
                   style={{
@@ -148,7 +143,7 @@ const Navbar = () => {
                     : 'text-white hover:bg-white/5'
                 }`}
               >
-                {LABELS[section]}
+                {section}
               </button>
             ))}
             <button

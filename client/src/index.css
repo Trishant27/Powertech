@@ -48,3 +48,12 @@ html {
   background-color: #FF6B00;
   color: #ffffff;
 }
+
+/* Logo continuous rotation animation */
+@keyframes logoPulse {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(8deg) scale(1.05); }
+  50%  { transform: rotate(0deg) scale(1); }
+  75%  { transform: rotate(-8deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
