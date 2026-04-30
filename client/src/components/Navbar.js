@@ -1,42 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SECTIONS = ['home', 'services', 'about', 'contact'];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
-  const navRefs = useRef({});
-  const containerRef = useRef(null);
-
-  // Measure button position relative to the nav container
-  const updateIndicator = useCallback((section) => {
-    const btn = navRefs.current[section];
-    const container = containerRef.current;
-    if (!btn || !container) return;
-    const btnRect = btn.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-    setIndicatorStyle({
-      left: btnRect.left - containerRect.left,
-      width: btnRect.width,
-      opacity: 1,
-    });
-  }, []);
-
-  // Sync indicator whenever activeSection changes
-  useEffect(() => {
-    updateIndicator(activeSection);
-  }, [activeSection, updateIndicator]);
-
-  // Recalculate on resize
-  useEffect(() => {
-    const recalc = () => updateIndicator(activeSection);
-    window.addEventListener('resize', recalc);
-    return () => window.removeEventListener('resize', recalc);
-  }, [activeSection, updateIndicator]);
 
   // Scroll-based active section detection
-  // Switch when a section's top reaches 40% down the viewport
   useEffect(() => {
     const navHeight = 80;
     const triggerOffset = navHeight + Math.round(window.innerHeight * 0.35);
@@ -93,34 +63,31 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu - Center */}
-          <div ref={containerRef} className="hidden lg:flex items-center space-x-8 relative">
+          <div className="hidden lg:flex items-center space-x-8">
             {SECTIONS.map((section) => (
               <button
                 key={section}
-                ref={(el) => (navRefs.current[section] = el)}
                 onClick={() => scrollToSection(section)}
-                className={`text-sm font-bold tracking-wider uppercase pb-1 transition-colors duration-200 ${
+                className={`text-sm font-bold tracking-wider uppercase transition-colors duration-200 flex flex-col items-center gap-1 ${
                   activeSection === section ? 'text-orange' : 'text-white hover:text-orange'
                 }`}
               >
-                {section}
+                <span>{section}</span>
+                {/* Underline: always rendered, slides in/out with scaleX */}
+                <span
+                  style={{
+                    display: 'block',
+                    height: '2px',
+                    width: '100%',
+                    backgroundColor: '#FF6B00',
+                    borderRadius: '1px',
+                    transform: activeSection === section ? 'scaleX(1)' : 'scaleX(0)',
+                    transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                    transformOrigin: 'center',
+                  }}
+                />
               </button>
             ))}
-
-            {/* Sliding underline indicator */}
-            <span
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: indicatorStyle.left,
-                width: indicatorStyle.width,
-                opacity: indicatorStyle.opacity,
-                transition: 'left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s',
-                height: '2px',
-                backgroundColor: '#FF6B00',
-                borderRadius: '1px',
-              }}
-            />
           </div>
 
           {/* Desktop Utility - Right */}
