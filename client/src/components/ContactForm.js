@@ -71,14 +71,14 @@ const ContactForm = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-6">
             <span className="text-orange font-bold text-xs tracking-wider uppercase">
-              GET IN TOUCH
+              START A PROJECT
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
-            REQUEST A <span className="text-orange">QUOTE</span>
+            LET'S BUILD SOMETHING <span className="text-orange">POWERFUL</span>
           </h2>
           <p className="text-gray-400 text-lg">
-            Our engineering team will respond within 24 hours
+            Share your project details and our engineering team will respond within 24 hours
           </p>
         </div>
 
