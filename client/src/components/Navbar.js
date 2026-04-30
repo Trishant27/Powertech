@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const SECTIONS = ['home', 'services', 'about', 'contact'];
 
@@ -7,41 +7,42 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
   const navRefs = useRef({});
+  const containerRef = useRef(null);
 
-  // Sync sliding indicator position whenever activeSection changes
-  useEffect(() => {
-    const el = navRefs.current[activeSection];
-    if (el) {
-      setIndicatorStyle({
-        left: el.offsetLeft,
-        width: el.offsetWidth,
-        opacity: 1,
-      });
-    }
-  }, [activeSection]);
+  // Measure button position relative to the nav container
+  const updateIndicator = useCallback((section) => {
+    const btn = navRefs.current[section];
+    const container = containerRef.current;
+    if (!btn || !container) return;
+    const btnRect = btn.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    setIndicatorStyle({
+      left: btnRect.left - containerRect.left,
+      width: btnRect.width,
+      opacity: 1,
+    });
+  }, []);
 
-  // Also recalculate on resize so it doesn't drift
+  // Sync indicator whenever activeSection changes
   useEffect(() => {
-    const recalc = () => {
-      const el = navRefs.current[activeSection];
-      if (el) {
-        setIndicatorStyle({
-          left: el.offsetLeft,
-          width: el.offsetWidth,
-          opacity: 1,
-        });
-      }
-    };
+    updateIndicator(activeSection);
+  }, [activeSection, updateIndicator]);
+
+  // Recalculate on resize
+  useEffect(() => {
+    const recalc = () => updateIndicator(activeSection);
     window.addEventListener('resize', recalc);
     return () => window.removeEventListener('resize', recalc);
-  }, [activeSection]);
+  }, [activeSection, updateIndicator]);
 
   // Scroll-based active section detection
+  // Switch when a section's top reaches 40% down the viewport
   useEffect(() => {
     const navHeight = 80;
+    const triggerOffset = navHeight + Math.round(window.innerHeight * 0.35);
 
     const handleScroll = () => {
-      const scrollY = window.scrollY + navHeight + 10;
+      const scrollY = window.scrollY + triggerOffset;
       let current = 'home';
       SECTIONS.forEach((id) => {
         const el = document.getElementById(id);
@@ -92,7 +93,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu - Center */}
-          <div className="hidden lg:flex items-center space-x-8 relative">
+          <div ref={containerRef} className="hidden lg:flex items-center space-x-8 relative">
             {SECTIONS.map((section) => (
               <button
                 key={section}
