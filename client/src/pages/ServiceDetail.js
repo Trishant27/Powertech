@@ -69,7 +69,12 @@ const ServiceDetail = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
           <button
-            onClick={() => navigate('/#services')}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }, 150);
+            }}
             className="flex items-center gap-2 text-gray-400 hover:text-orange transition text-sm font-bold uppercase tracking-wider mb-10 group"
           >
             <svg className="w-4 h-4 group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
