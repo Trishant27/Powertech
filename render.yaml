@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: powertech
+    runtime: node
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: NODE_ENV
+        value: production
