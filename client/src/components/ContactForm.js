@@ -229,7 +229,7 @@ const ContactForm = () => {
                     name="serviceCategory"
                     value={formData.serviceCategory}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
+                    className="w-full px-4 py-3 h-[50px] bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
                   >
                     <option>General Inquiry</option>
                     <option>DG Set Installation</option>
