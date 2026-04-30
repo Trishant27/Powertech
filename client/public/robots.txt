@@ -1,0 +1,7 @@
+# robots.txt for Powertech
+# DOMAIN_PLACEHOLDER: replace YOUR_DOMAIN with actual domain
+
+User-agent: *
+Allow: /
+
+Sitemap: https://YOUR_DOMAIN/sitemap.xml
