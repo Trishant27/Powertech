@@ -40,8 +40,7 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-medium">
-            Industrial-grade power solutions engineered for zero downtime. 
-            From installation to 24/7 maintenance, we deliver reliability at scale.
+            Engineered for zero downtime. From installation to 24/7 maintenance, we deliver reliability at scale.
           </p>
 
           {/* CTA Buttons */}
@@ -50,7 +49,7 @@ const Hero = () => {
               onClick={scrollToContact}
               className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-2 group"
             >
-              REQUEST QUOTE
+              GET IN TOUCH
               <svg className="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

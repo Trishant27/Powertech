@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,10 +8,31 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(id);
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    const sections = ['home', 'about', 'services', 'contact'];
+    const observers = [];
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.4 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
 
   const handleWhatsApp = () => {
     window.open('https://wa.me/917083964914?text=Hi%20Powertech,%20I%20would%20like%20to%20inquire%20about%20your%20services', '_blank');
@@ -68,7 +89,7 @@ const Navbar = () => {
               onClick={() => scrollToSection('contact')}
               className="bg-orange hover:bg-orange/90 text-white font-bold px-6 py-3 text-sm tracking-wider uppercase transition shadow-lg"
             >
-              REQUEST QUOTE
+              GET IN TOUCH
             </button>
           </div>
 
@@ -111,7 +132,7 @@ const Navbar = () => {
               onClick={() => scrollToSection('contact')}
               className="block w-full text-left px-4 py-3 bg-orange hover:bg-orange/90 text-white font-bold tracking-wider uppercase text-sm transition mt-2"
             >
-              REQUEST QUOTE
+              GET IN TOUCH
             </button>
           </div>
         </div>

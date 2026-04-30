@@ -59,6 +59,16 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
         </svg>
       )
+    },
+    {
+      id: '6',
+      title: 'UNLOADING & SHIFTING',
+      description: 'Professional DG set unloading, positioning, and shifting using heavy-duty equipment and skilled manpower.',
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
+      )
     }
   ];
 
@@ -104,7 +114,7 @@ const Services = () => {
                 }}
                 className="text-orange hover:text-white font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all uppercase tracking-wider"
               >
-                ENQUIRE NOW
+                READ MORE
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
