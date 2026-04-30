@@ -46,7 +46,7 @@ const features = [
 
 const MiniAbout = () => {
   return (
-    <section className="py-16 md:py-20 bg-navy border-t border-white/10">
+    <section id="about" className="py-16 md:py-20 bg-navy border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
