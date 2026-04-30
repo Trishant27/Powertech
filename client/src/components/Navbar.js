@@ -13,25 +13,26 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const sections = ['home', 'about', 'services', 'contact'];
-    const observers = [];
+    const sections = ['home', 'services', 'about', 'contact'];
+    const navHeight = 80;
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(id);
-          }
-        },
-        { threshold: 0.4 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
+    const handleScroll = () => {
+      const scrollY = window.scrollY + navHeight + 10;
+      let current = 'home';
 
-    return () => observers.forEach((o) => o.disconnect());
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) {
+          current = id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // run once on mount
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleWhatsApp = () => {
@@ -58,7 +59,7 @@ const Navbar = () => {
 
           {/* Desktop Menu - Center */}
           <div className="hidden lg:flex items-center space-x-8">
-            {['home', 'about', 'services', 'contact'].map((section) => (
+            {['home', 'services', 'about', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -115,7 +116,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-charcoal border-t border-white/10">
           <div className="px-4 pt-2 pb-3 space-y-1">
-            {['home', 'about', 'services', 'contact'].map((section) => (
+            {['home', 'services', 'about', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
