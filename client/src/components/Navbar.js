@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 const SECTIONS = ['home', 'services', 'about', 'contact'];
 
+const LABELS = {
+  home: 'HOME',
+  services: 'SERVICES',
+  about: 'WHY POWERTECH',
+  contact: 'CONTACT',
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -72,7 +79,7 @@ const Navbar = () => {
                   activeSection === section ? 'text-orange' : 'text-white hover:text-orange'
                 }`}
               >
-                <span>{section}</span>
+                <span>{LABELS[section]}</span>
                 {/* Underline: always rendered, slides in/out with scaleX */}
                 <span
                   style={{
@@ -141,7 +148,7 @@ const Navbar = () => {
                     : 'text-white hover:bg-white/5'
                 }`}
               >
-                {section}
+                {LABELS[section]}
               </button>
             ))}
             <button
