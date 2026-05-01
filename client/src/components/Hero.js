@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroModel3D from './HeroModel3D';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -37,7 +38,9 @@ const Hero = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl">
+        <div className="flex items-center justify-between gap-8">
+          {/* Left — text content */}
+          <div className="max-w-2xl w-full">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-8">
             <div className="w-2 h-2 bg-orange rounded-full animate-pulse"></div>
@@ -75,7 +78,14 @@ const Hero = () => {
             >
               VIEW CAPABILITIES
             </button>
+            </div>
           </div>
+
+          {/* Right — 3D interactive model */}
+          <div className="hidden lg:block flex-shrink-0 w-[420px] h-[420px]">
+            <HeroModel3D />
+          </div>
+
         </div>
       </div>
     </section>
