@@ -16,7 +16,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="/Powertech-logo.png"
+                src="/images/icons/Powertech-logo.png"
                 alt="Powertech Logo"
                 className="h-10 w-auto object-contain"
               />

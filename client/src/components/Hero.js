@@ -21,7 +21,7 @@ const Hero = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center right',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.25,
+          opacity: 0.20,
         }}
       />
       {/* Dark overlay — heavier on the left (text side), lighter on the right */}

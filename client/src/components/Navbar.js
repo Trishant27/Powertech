@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <button onClick={() => scrollToSection('home')} className="flex items-center gap-2">
               <img
-                src="/Powertech-logo.png"
+                src="/images/icons/Powertech-logo.png"
                 alt="Powertech Logo"
                 className="h-10 w-auto object-contain"
                 style={{ animation: 'logoPulse 3s ease-in-out infinite' }}
