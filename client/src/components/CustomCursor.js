@@ -14,6 +14,19 @@ const CustomCursor = () => {
     return () => window.removeEventListener('mousemove', move);
   }, []);
 
+  const ringStyle = (delay) => ({
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    width: '20px',
+    height: '20px',
+    marginLeft: '-10px',
+    marginTop: '-10px',
+    borderRadius: '50%',
+    border: '1.5px solid rgba(255, 107, 0, 0.75)',
+    animation: `radarRing 1.6s ease-out infinite ${delay}`,
+  });
+
   return (
     <div
       ref={cursorRef}
@@ -24,60 +37,22 @@ const CustomCursor = () => {
         transform: 'translate(-50%, -50%)',
       }}
     >
-      {/* Ping ring 1 */}
-      <span style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        width: '40px',
-        height: '40px',
-        marginLeft: '-20px',
-        marginTop: '-20px',
-        borderRadius: '50%',
-        border: '2px solid rgba(255, 107, 0, 0.8)',
-        animation: 'radarRing 1.8s ease-out infinite',
-      }} />
-
-      {/* Ping ring 2 — delayed */}
-      <span style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        width: '40px',
-        height: '40px',
-        marginLeft: '-20px',
-        marginTop: '-20px',
-        borderRadius: '50%',
-        border: '2px solid rgba(255, 107, 0, 0.5)',
-        animation: 'radarRing 1.8s ease-out infinite 0.6s',
-      }} />
-
-      {/* Ping ring 3 — more delayed */}
-      <span style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        width: '40px',
-        height: '40px',
-        marginLeft: '-20px',
-        marginTop: '-20px',
-        borderRadius: '50%',
-        border: '2px solid rgba(255, 107, 0, 0.3)',
-        animation: 'radarRing 1.8s ease-out infinite 1.2s',
-      }} />
+      <span style={ringStyle('0s')} />
+      <span style={ringStyle('0.55s')} />
+      <span style={ringStyle('1.1s')} />
 
       {/* Core dot */}
       <span style={{
         position: 'absolute',
         top: '50%',
         left: '50%',
-        width: '10px',
-        height: '10px',
-        marginLeft: '-5px',
-        marginTop: '-5px',
+        width: '8px',
+        height: '8px',
+        marginLeft: '-4px',
+        marginTop: '-4px',
         borderRadius: '50%',
         backgroundColor: '#FF6B00',
-        boxShadow: '0 0 8px 3px rgba(255,107,0,0.6)',
+        boxShadow: '0 0 6px 2px rgba(255,107,0,0.6)',
       }} />
     </div>
   );
