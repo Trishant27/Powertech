@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroModel3D from './HeroModel3D';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -38,9 +37,7 @@ const Hero = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex items-center justify-between gap-8">
-          {/* Left — text content */}
-          <div className="max-w-2xl w-full">
+        <div className="max-w-4xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-8">
             <div className="w-2 h-2 bg-orange rounded-full animate-pulse"></div>
@@ -65,12 +62,26 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={scrollToContact}
-              className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-2 group"
+              className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-3 group"
             >
               GET IN TOUCH
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              {/* Custom animated double-chevron arrow */}
+              <span className="flex items-center gap-0.5 relative">
+                <svg
+                  className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-0"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}
+                  style={{ filter: 'drop-shadow(0 0 4px #fff)' }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <svg
+                  className="w-4 h-4 transition-all duration-300 group-hover:translate-x-2"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}
+                  style={{ filter: 'drop-shadow(0 0 6px #FF6B00)', animation: 'arrowPulse 1.2s ease-in-out infinite' }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </button>
             <button
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
@@ -78,14 +89,7 @@ const Hero = () => {
             >
               VIEW CAPABILITIES
             </button>
-            </div>
           </div>
-
-          {/* Right — 3D interactive model */}
-          <div className="hidden lg:block flex-shrink-0 w-[420px] h-[420px]">
-            <HeroModel3D />
-          </div>
-
         </div>
       </div>
     </section>
