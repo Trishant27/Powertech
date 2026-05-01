@@ -64,3 +64,12 @@ html {
   70%  { transform: scale(2.4); opacity: 0; }
   100% { transform: scale(2.4); opacity: 0; }
 }
+
+/* Custom cursor radar ring */
+@keyframes cursorRadar {
+  0%   { transform: translate(var(--cx, 0px), var(--cy, 0px)) scale(0.5); opacity: 0.8; }
+  80%  { transform: translate(var(--cx, 0px), var(--cy, 0px)) scale(2.8); opacity: 0; }
+  100% { transform: translate(var(--cx, 0px), var(--cy, 0px)) scale(2.8); opacity: 0; }
+}
+
+* { cursor: none !important; }

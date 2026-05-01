@@ -62,21 +62,9 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={scrollToContact}
-              className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-3 group"
+              className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-2 group"
             >
               GET IN TOUCH
-              {/* Radar dot */}
-              <span className="relative flex items-center justify-center w-4 h-4">
-                {/* Ping ring 1 */}
-                <span className="absolute inline-flex w-full h-full rounded-full bg-white opacity-60"
-                  style={{ animation: 'radarPing 1.5s ease-out infinite' }} />
-                {/* Ping ring 2 — delayed */}
-                <span className="absolute inline-flex w-full h-full rounded-full bg-white opacity-40"
-                  style={{ animation: 'radarPing 1.5s ease-out infinite 0.5s' }} />
-                {/* Core dot */}
-                <span className="relative inline-flex w-2.5 h-2.5 rounded-full bg-white"
-                  style={{ boxShadow: '0 0 6px 2px rgba(255,255,255,0.8)' }} />
-              </span>
             </button>
             <button
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}

@@ -9,6 +9,7 @@ import About from './components/About';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ServiceDetail from './pages/ServiceDetail';
+import CustomCursor from './components/CustomCursor';
 
 // Home page — all sections
 const Home = () => (
@@ -27,6 +28,7 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
