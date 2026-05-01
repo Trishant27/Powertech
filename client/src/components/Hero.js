@@ -65,22 +65,17 @@ const Hero = () => {
               className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition shadow-industrial flex items-center justify-center gap-3 group"
             >
               GET IN TOUCH
-              {/* Custom animated double-chevron arrow */}
-              <span className="flex items-center gap-0.5 relative">
-                <svg
-                  className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-0"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}
-                  style={{ filter: 'drop-shadow(0 0 4px #fff)' }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-                <svg
-                  className="w-4 h-4 transition-all duration-300 group-hover:translate-x-2"
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}
-                  style={{ filter: 'drop-shadow(0 0 6px #FF6B00)', animation: 'arrowPulse 1.2s ease-in-out infinite' }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+              {/* Radar dot */}
+              <span className="relative flex items-center justify-center w-4 h-4">
+                {/* Ping ring 1 */}
+                <span className="absolute inline-flex w-full h-full rounded-full bg-white opacity-60"
+                  style={{ animation: 'radarPing 1.5s ease-out infinite' }} />
+                {/* Ping ring 2 — delayed */}
+                <span className="absolute inline-flex w-full h-full rounded-full bg-white opacity-40"
+                  style={{ animation: 'radarPing 1.5s ease-out infinite 0.5s' }} />
+                {/* Core dot */}
+                <span className="relative inline-flex w-2.5 h-2.5 rounded-full bg-white"
+                  style={{ boxShadow: '0 0 6px 2px rgba(255,255,255,0.8)' }} />
               </span>
             </button>
             <button
