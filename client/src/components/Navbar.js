@@ -56,6 +56,7 @@ const Navbar = () => {
                 alt="Powertech Logo"
                 className="h-10 w-auto object-contain"
                 style={{ animation: 'logoPulse 3s ease-in-out infinite' }}
+                onError={(e) => { e.target.style.display = 'none'; }}
               />
               <span className="text-2xl font-black tracking-tight">
                 POWER<span className="text-orange">TECH</span>
