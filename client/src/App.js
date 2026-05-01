@@ -11,9 +11,9 @@ import Footer from './components/Footer';
 import ServiceDetail from './pages/ServiceDetail';
 import CustomCursor from './components/CustomCursor';
 
-// Home page — all sections
+// Home page — all sections wrapped in 3D perspective context
 const Home = () => (
-  <div className="min-h-screen bg-charcoal">
+  <div className="min-h-screen bg-charcoal perspective-page">
     <Navbar />
     <Hero />
     <StatsStrip />

@@ -1,6 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import useParallax3D from './useParallax3D';
 
 const Footer = () => {
+  const footerElRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  const { ref: parallaxRef, style: parallaxStyle } = useParallax3D({
+    rotateX: 1,
+    translateY: 8,
+    speed: 0.3,
+  });
+
+  const setRefs = (el) => {
+    footerElRef.current = el;
+    parallaxRef.current = el;
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (footerElRef.current) observer.observe(footerElRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -9,11 +38,24 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-navy border-t border-white/10 text-white py-12">
+    <footer
+      className="bg-navy border-t border-white/10 text-white py-12 perspective-section"
+      ref={setRefs}
+      style={parallaxStyle}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
           {/* Company Info */}
-          <div>
+          <div
+            className={visible ? 'animate-3d-entrance' : 'opacity-0'}
+            style={{
+              animationDelay: '0.1s',
+              transform: 'translateZ(10px)',
+            }}
+          >
             <div className="flex items-center gap-2 mb-4">
               <img
                 src="/images/icons/Powertech-logo.png"
@@ -33,26 +75,56 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div
+            className={visible ? 'animate-3d-entrance' : 'opacity-0'}
+            style={{
+              animationDelay: '0.2s',
+              transform: 'translateZ(15px)',
+            }}
+          >
             <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Navigation</h4>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => scrollToSection('home')} className="text-gray-400 hover:text-orange transition text-sm">
+                <button
+                  onClick={() => scrollToSection('home')}
+                  className="text-gray-400 hover:text-orange transition text-sm"
+                  style={{ transition: 'transform 0.2s ease, color 0.2s' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(4px) translateZ(5px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0) translateZ(0)'; }}
+                >
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-orange transition text-sm">
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="text-gray-400 hover:text-orange transition text-sm"
+                  style={{ transition: 'transform 0.2s ease, color 0.2s' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(4px) translateZ(5px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0) translateZ(0)'; }}
+                >
                   About Us
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('services')} className="text-gray-400 hover:text-orange transition text-sm">
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="text-gray-400 hover:text-orange transition text-sm"
+                  style={{ transition: 'transform 0.2s ease, color 0.2s' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(4px) translateZ(5px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0) translateZ(0)'; }}
+                >
                   Services
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-orange transition text-sm">
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="text-gray-400 hover:text-orange transition text-sm"
+                  style={{ transition: 'transform 0.2s ease, color 0.2s' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateX(4px) translateZ(5px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateX(0) translateZ(0)'; }}
+                >
                   Contact
                 </button>
               </li>
@@ -60,7 +132,13 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div
+            className={visible ? 'animate-3d-entrance' : 'opacity-0'}
+            style={{
+              animationDelay: '0.3s',
+              transform: 'translateZ(20px)',
+            }}
+          >
             <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Services</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>DG Set Installation</li>
@@ -73,7 +151,13 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div
+            className={visible ? 'animate-3d-entrance' : 'opacity-0'}
+            style={{
+              animationDelay: '0.4s',
+              transform: 'translateZ(25px)',
+            }}
+          >
             <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Contact</h4>
             <ul className="space-y-3">
               <li>
@@ -105,9 +189,30 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Powertech. All rights reserved.
             </div>
             <div className="flex gap-6 text-xs text-gray-500 uppercase tracking-wider">
-              <button className="hover:text-orange transition">MSDS</button>
-              <button className="hover:text-orange transition">Safety Standards</button>
-              <button className="hover:text-orange transition">Compliance</button>
+              <button
+                className="hover:text-orange transition"
+                style={{ transition: 'transform 0.2s, color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
+              >
+                MSDS
+              </button>
+              <button
+                className="hover:text-orange transition"
+                style={{ transition: 'transform 0.2s, color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
+              >
+                Safety Standards
+              </button>
+              <button
+                className="hover:text-orange transition"
+                style={{ transition: 'transform 0.2s, color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
+              >
+                Compliance
+              </button>
             </div>
           </div>
         </div>

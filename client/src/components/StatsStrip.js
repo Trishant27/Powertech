@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import TiltCard from './TiltCard';
 
 const StatsStrip = () => {
+  const stripRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  // Intersection observer to trigger animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (stripRef.current) observer.observe(stripRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const stats = [
     {
       value: '500+',
@@ -32,24 +51,48 @@ const StatsStrip = () => {
   ];
 
   return (
-    <section className="bg-darkGrey border-y border-white/10 py-12">
+    <section
+      ref={stripRef}
+      className="bg-darkGrey border-y border-white/10 py-12 perspective-section"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center">
           {stats.map((stat, index) => (
-            <div 
+            <TiltCard
               key={index}
-              className="flex flex-col items-center text-center group"
+              tiltMax={15}
+              liftZ={20}
+              className={`flex flex-col items-center text-center group p-6 rounded ${
+                visible ? 'animate-flipInX' : 'opacity-0'
+              }`}
+              style={{
+                animationDelay: `${index * 0.15}s`,
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)',
+                border: '1px solid rgba(255,255,255,0.06)',
+              }}
             >
-              <div className="text-orange mb-3 group-hover:scale-110 transition">
+              <div
+                className="text-orange mb-3 group-hover:scale-110 transition"
+                style={{
+                  transform: 'translateZ(20px)',
+                  filter: 'drop-shadow(0 0 8px rgba(255,107,0,0.4))',
+                }}
+              >
                 {stat.icon}
               </div>
-              <div className="text-3xl md:text-4xl font-black text-white mb-2">
+              <div
+                className="text-3xl md:text-4xl font-black text-white mb-2"
+                style={{ transform: 'translateZ(15px)' }}
+              >
                 {stat.value}
               </div>
-              <div className="text-xs md:text-sm text-gray-400 font-bold tracking-wider uppercase">
+              <div
+                className="text-xs md:text-sm text-gray-400 font-bold tracking-wider uppercase"
+                style={{ transform: 'translateZ(10px)' }}
+              >
                 {stat.label}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

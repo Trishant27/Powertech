@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import TiltCard from './TiltCard';
+import useParallax3D from './useParallax3D';
 
 const features = [
   {
@@ -45,8 +47,36 @@ const features = [
 ];
 
 const MiniAbout = () => {
+  const gridRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  const { ref: sectionRef, style: sectionStyle } = useParallax3D({
+    rotateX: 1.5,
+    translateY: 10,
+    speed: 0.5,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (gridRef.current) observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-16 md:py-20 bg-navy border-t border-white/10">
+    <section
+      id="about"
+      className="py-16 md:py-20 bg-navy border-t border-white/10 perspective-section"
+      ref={sectionRef}
+      style={sectionStyle}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
@@ -67,23 +97,45 @@ const MiniAbout = () => {
           </p>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
+        {/* Feature Grid — 3D tilt cards */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10"
+        >
           {features.map((f, i) => (
-            <div
+            <TiltCard
               key={i}
-              className="bg-charcoal p-8 hover:bg-darkGrey transition group"
+              tiltMax={14}
+              liftZ={18}
+              className={`bg-charcoal p-8 hover:bg-darkGrey transition group ${
+                visible ? 'animate-rotateInY' : 'opacity-0'
+              }`}
+              style={{
+                animationDelay: `${i * 0.12}s`,
+              }}
             >
-              <div className="text-orange mb-5 group-hover:scale-110 transition">
+              <div
+                className="text-orange mb-5 transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  transform: 'translateZ(22px)',
+                  filter: 'drop-shadow(0 0 8px rgba(255,107,0,0.35))',
+                }}
+              >
                 {f.icon}
               </div>
-              <h3 className="text-white font-black text-lg uppercase tracking-tight mb-3">
+              <h3
+                className="text-white font-black text-lg uppercase tracking-tight mb-3"
+                style={{ transform: 'translateZ(15px)' }}
+              >
                 {f.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p
+                className="text-gray-400 text-sm leading-relaxed"
+                style={{ transform: 'translateZ(8px)' }}
+              >
                 {f.description}
               </p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

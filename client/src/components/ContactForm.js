@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import TiltCard from './TiltCard';
+import useParallax3D from './useParallax3D';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,33 @@ const ContactForm = () => {
     message: ''
   });
   const [status, setStatus] = useState({ type: '', message: '' });
+  const sectionElRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  const { ref: parallaxRef, style: parallaxStyle } = useParallax3D({
+    rotateX: 1,
+    translateY: 10,
+    speed: 0.4,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionElRef.current) observer.observe(sectionElRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const setRefs = (el) => {
+    sectionElRef.current = el;
+    parallaxRef.current = el;
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -65,34 +94,72 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-charcoal">
+    <section
+      id="contact"
+      className="py-20 md:py-28 bg-charcoal perspective-section"
+      ref={setRefs}
+      style={parallaxStyle}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-6">
+          <div
+            className={`inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-6 ${
+              visible ? 'animate-flipInX' : 'opacity-0'
+            }`}
+            style={{ animationDelay: '0.1s' }}
+          >
             <span className="text-orange font-bold text-xs tracking-wider uppercase">
               START A PROJECT
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
-            LET'S BUILD SOMETHING <span className="text-orange">POWERFUL</span>
+          <h2
+            className={`text-4xl md:text-5xl font-black text-white mb-4 tracking-tight ${
+              visible ? 'animate-3d-entrance' : 'opacity-0'
+            }`}
+            style={{
+              animationDelay: '0.2s',
+              textShadow: '0 4px 20px rgba(0,0,0,0.4)',
+            }}
+          >
+            LET'S BUILD SOMETHING <span className="text-orange" style={{ textShadow: '0 0 30px rgba(255,107,0,0.25)' }}>POWERFUL</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p
+            className={`text-gray-400 text-lg ${visible ? 'animate-3d-entrance' : 'opacity-0'}`}
+            style={{ animationDelay: '0.3s' }}
+          >
             Share your project details and our engineering team will respond within 24 hours
           </p>
         </div>
 
-        {/* Contact Card */}
-        <div className="bg-darkGrey border border-white/10 shadow-industrial">
+        {/* Contact Card — wrapped in TiltCard */}
+        <TiltCard
+          tiltMax={4}
+          liftZ={15}
+          glare={true}
+          className={`bg-darkGrey border border-white/10 shadow-3d ${
+            visible ? 'animate-3d-entrance' : 'opacity-0'
+          }`}
+          style={{ animationDelay: '0.4s' }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
             {/* Left Column - Contact Details */}
-            <div className="lg:col-span-2 bg-navy p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10">
-              <h3 className="text-2xl font-black text-white mb-6 uppercase tracking-tight">
+            <div
+              className="lg:col-span-2 bg-navy p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              <h3
+                className="text-2xl font-black text-white mb-6 uppercase tracking-tight"
+                style={{ transform: 'translateZ(12px)' }}
+              >
                 CONTACT INFO
               </h3>
               
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
+                <div
+                  className="flex items-start gap-4"
+                  style={{ transform: 'translateZ(8px)' }}
+                >
                   <div className="flex-shrink-0 w-12 h-12 bg-orange/10 border border-orange/30 flex items-center justify-center">
                     <svg className="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -106,7 +173,10 @@ const ContactForm = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div
+                  className="flex items-start gap-4"
+                  style={{ transform: 'translateZ(8px)' }}
+                >
                   <div className="flex-shrink-0 w-12 h-12 bg-orange/10 border border-orange/30 flex items-center justify-center">
                     <svg className="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -120,7 +190,10 @@ const ContactForm = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div
+                  className="flex items-start gap-4"
+                  style={{ transform: 'translateZ(8px)' }}
+                >
                   <div className="flex-shrink-0 w-12 h-12 bg-orange/10 border border-orange/30 flex items-center justify-center">
                     <svg className="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -134,7 +207,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-white/10">
+              <div className="mt-8 pt-8 border-t border-white/10" style={{ transform: 'translateZ(10px)' }}>
                 <button
                   onClick={handleWhatsApp}
                   className="text-orange hover:text-orange/70 font-bold text-sm uppercase tracking-wider transition flex items-center gap-2 group"
@@ -151,10 +224,13 @@ const ContactForm = () => {
             </div>
 
             {/* Right Column - Form */}
-            <div className="lg:col-span-3 p-8 lg:p-10">
+            <div
+              className="lg:col-span-3 p-8 lg:p-10"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div style={{ transform: 'translateZ(5px)' }}>
                     <label htmlFor="name" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                       Full Name *
                     </label>
@@ -167,10 +243,11 @@ const ContactForm = () => {
                       required
                       className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
                       placeholder="John Doe"
+                      style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                     />
                   </div>
 
-                  <div>
+                  <div style={{ transform: 'translateZ(5px)' }}>
                     <label htmlFor="company" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                       Company
                     </label>
@@ -182,12 +259,13 @@ const ContactForm = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
                       placeholder="Company Name"
+                      style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div style={{ transform: 'translateZ(5px)' }}>
                     <label htmlFor="email" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                       Email Address *
                     </label>
@@ -200,10 +278,11 @@ const ContactForm = () => {
                       required
                       className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
                       placeholder="john@company.com"
+                      style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                     />
                   </div>
 
-                  <div>
+                  <div style={{ transform: 'translateZ(5px)' }}>
                     <label htmlFor="phone" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                       Phone Number *
                     </label>
@@ -216,11 +295,12 @@ const ContactForm = () => {
                       required
                       className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
                       placeholder="+91 98765 43210"
+                      style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                     />
                   </div>
                 </div>
 
-                <div>
+                <div style={{ transform: 'translateZ(5px)' }}>
                   <label htmlFor="serviceCategory" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                     Service Required
                   </label>
@@ -230,6 +310,7 @@ const ContactForm = () => {
                     value={formData.serviceCategory}
                     onChange={handleChange}
                     className="w-full px-4 py-3 h-[50px] bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition"
+                    style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                   >
                     <option>General Inquiry</option>
                     <option>DG Set Installation</option>
@@ -242,7 +323,7 @@ const ContactForm = () => {
                   </select>
                 </div>
 
-                <div>
+                <div style={{ transform: 'translateZ(5px)' }}>
                   <label htmlFor="message" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                     Project Details *
                   </label>
@@ -255,6 +336,7 @@ const ContactForm = () => {
                     rows="5"
                     className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:border-orange focus:outline-none transition resize-none"
                     placeholder="Describe your project requirements..."
+                    style={{ transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease' }}
                   ></textarea>
                 </div>
 
@@ -266,7 +348,8 @@ const ContactForm = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-orange hover:bg-orange/90 text-white font-bold py-4 px-6 text-sm uppercase tracking-wider transition flex items-center justify-center gap-2 group"
+                  className="w-full bg-orange hover:bg-orange/90 text-white font-bold py-4 px-6 text-sm uppercase tracking-wider transition flex items-center justify-center gap-2 group btn-3d"
+                  style={{ transform: 'translateZ(10px)' }}
                 >
                   SUBMIT REQUEST
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -276,7 +359,7 @@ const ContactForm = () => {
               </form>
             </div>
           </div>
-        </div>
+        </TiltCard>
       </div>
     </section>
   );
