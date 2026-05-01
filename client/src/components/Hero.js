@@ -12,14 +12,28 @@ const Hero = () => {
     <section 
       id="home" 
       className="relative bg-navy text-white py-24 md:py-32 lg:py-40 overflow-hidden"
-      style={{
-        backgroundImage: 'linear-gradient(rgba(26, 30, 35, 0.95), rgba(18, 18, 18, 0.95)), url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.02\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        backgroundSize: 'cover, 60px 60px'
-      }}
     >
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange/5 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange/5 to-transparent"></div>
+      {/* Background image with dark blend */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/images/common pages/Frontpagedg.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center right',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      {/* Dark overlay — heavier on the left (text side), lighter on the right */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'linear-gradient(to right, rgba(10,13,18,0.97) 0%, rgba(10,13,18,0.92) 40%, rgba(10,13,18,0.75) 65%, rgba(10,13,18,0.45) 100%)',
+        }}
+      />
+      {/* Bottom fade to match page background */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 z-0"
+        style={{ background: 'linear-gradient(to bottom, transparent, #121212)' }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl">
