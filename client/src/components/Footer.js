@@ -82,7 +82,7 @@ const Footer = () => {
               transform: 'translateZ(15px)',
             }}
           >
-            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Navigation</h4>
+            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-blue-400">Navigation</h4>
             <ul className="space-y-2">
               <li>
                 <button
@@ -139,7 +139,7 @@ const Footer = () => {
               transform: 'translateZ(20px)',
             }}
           >
-            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Services</h4>
+            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-blue-400">Services</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>DG Set Installation</li>
               <li>DG Piping Systems</li>
@@ -158,7 +158,7 @@ const Footer = () => {
               transform: 'translateZ(25px)',
             }}
           >
-            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-orange">Contact</h4>
+            <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-blue-400">Contact</h4>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:powertechengineer82@gmail.com" className="text-gray-400 hover:text-orange transition text-sm break-all">

@@ -73,69 +73,51 @@ const MiniAbout = () => {
   return (
     <section
       id="about"
-      className="py-16 md:py-20 bg-navy border-t border-white/10 perspective-section"
-      ref={sectionRef}
-      style={sectionStyle}
+      className="py-16 md:py-20 bg-white border-t border-blue-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 mb-4">
               <span className="text-orange font-bold text-xs tracking-wider uppercase">
                 WHO WE ARE
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-navy tracking-tight">
               BUILT ON EXPERTISE,<br />
               <span className="text-orange">DRIVEN BY PRECISION</span>
             </h2>
           </div>
-          <p className="text-gray-400 max-w-sm text-sm leading-relaxed">
+          <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
             Powertech brings together certified engineers, proven processes, and industrial-grade
             equipment to deliver power solutions that never let you down.
           </p>
         </div>
 
-        {/* Feature Grid — 3D tilt cards */}
+        {/* Feature Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {features.map((f, i) => (
-            <TiltCard
+            <div
               key={i}
-              tiltMax={14}
-              liftZ={18}
-              className={`bg-charcoal p-8 hover:bg-darkGrey transition group ${
+              className={`bg-charcoal border border-blue-100 p-8 hover:border-orange hover:shadow-md transition group ${
                 visible ? 'animate-rotateInY' : 'opacity-0'
               }`}
-              style={{
-                animationDelay: `${i * 0.12}s`,
-              }}
+              style={{ animationDelay: `${i * 0.12}s` }}
             >
-              <div
-                className="text-orange mb-5 transition-transform duration-300 group-hover:scale-110"
-                style={{
-                  transform: 'translateZ(22px)',
-                  filter: 'drop-shadow(0 0 8px rgba(255,107,0,0.35))',
-                }}
-              >
+              <div className="text-orange mb-5 group-hover:scale-110 transition">
                 {f.icon}
               </div>
-              <h3
-                className="text-white font-black text-lg uppercase tracking-tight mb-3"
-                style={{ transform: 'translateZ(15px)' }}
-              >
+              <h3 className="text-navy font-black text-lg uppercase tracking-tight mb-3">
                 {f.title}
               </h3>
-              <p
-                className="text-gray-400 text-sm leading-relaxed"
-                style={{ transform: 'translateZ(8px)' }}
-              >
+              <p className="text-gray-500 text-sm leading-relaxed">
                 {f.description}
               </p>
-            </TiltCard>
+            </div>
           ))}
         </div>
       </div>

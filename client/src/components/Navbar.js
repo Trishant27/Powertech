@@ -80,27 +80,16 @@ const Navbar = () => {
                 key={section}
                 onClick={() => scrollToSection(section)}
                 className={`text-sm font-bold tracking-wider uppercase transition-all duration-300 flex flex-col items-center gap-1 ${
-                  activeSection === section ? 'text-orange' : 'text-white hover:text-orange'
+                  activeSection === section ? 'text-orange' : 'text-white/80 hover:text-white'
                 }`}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1), color 0.2s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'perspective(400px) rotateX(-10deg) translateZ(8px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'perspective(400px) rotateX(0deg) translateZ(0)';
-                }}
               >
                 <span>{section}</span>
-                {/* Underline: always rendered, slides in/out with scaleX */}
                 <span
                   style={{
                     display: 'block',
                     height: '2px',
                     width: '100%',
-                    backgroundColor: '#FF6B00',
+                    backgroundColor: '#1E40AF',
                     borderRadius: '1px',
                     transform: activeSection === section ? 'scaleX(1)' : 'scaleX(0)',
                     transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',

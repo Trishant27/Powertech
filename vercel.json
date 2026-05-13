@@ -3,6 +3,7 @@
   "outputDirectory": "build",
   "installCommand": "npm install",
   "framework": "create-react-app",
+  "rootDirectory": "client",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],

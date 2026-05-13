@@ -53,46 +53,28 @@ const StatsStrip = () => {
   return (
     <section
       ref={stripRef}
-      className="bg-darkGrey border-y border-white/10 py-12 perspective-section"
+      className="bg-white border-y border-blue-100 py-12"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center">
           {stats.map((stat, index) => (
-            <TiltCard
+            <div
               key={index}
-              tiltMax={15}
-              liftZ={20}
-              className={`flex flex-col items-center text-center group p-6 rounded ${
+              className={`flex flex-col items-center text-center group p-6 ${
                 visible ? 'animate-flipInX' : 'opacity-0'
               }`}
-              style={{
-                animationDelay: `${index * 0.15}s`,
-                background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)',
-                border: '1px solid rgba(255,255,255,0.06)',
-              }}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div
-                className="text-orange mb-3 group-hover:scale-110 transition"
-                style={{
-                  transform: 'translateZ(20px)',
-                  filter: 'drop-shadow(0 0 8px rgba(255,107,0,0.4))',
-                }}
-              >
+              <div className="text-orange mb-3 group-hover:scale-110 transition">
                 {stat.icon}
               </div>
-              <div
-                className="text-3xl md:text-4xl font-black text-white mb-2"
-                style={{ transform: 'translateZ(15px)' }}
-              >
+              <div className="text-3xl md:text-4xl font-black text-navy mb-2">
                 {stat.value}
               </div>
-              <div
-                className="text-xs md:text-sm text-gray-400 font-bold tracking-wider uppercase"
-                style={{ transform: 'translateZ(10px)' }}
-              >
+              <div className="text-xs md:text-sm text-gray-500 font-bold tracking-wider uppercase">
                 {stat.label}
               </div>
-            </TiltCard>
+            </div>
           ))}
         </div>
       </div>

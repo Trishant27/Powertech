@@ -68,79 +68,57 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 md:py-28 bg-charcoal perspective-section"
-      ref={sectionRef}
-      style={sectionStyle}
+      className="py-20 md:py-28 bg-charcoal"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
-          <div className="inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 mb-6">
             <span className="text-orange font-bold text-xs tracking-wider uppercase">
               OUR CAPABILITIES
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-navy mb-4 tracking-tight">
             TECHNICAL SERVICES
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl">
+          <p className="text-gray-500 text-lg max-w-2xl">
             End-to-end power generation solutions engineered for industrial reliability
           </p>
         </div>
 
-        {/* Services Grid — 3D tilt cards with staggered entrance */}
+        {/* Services Grid */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
-            <TiltCard
+            <div
               key={service.id}
-              tiltMax={10}
-              liftZ={25}
-              className={`bg-darkGrey border border-white/10 p-8 hover:border-orange/50 transition group cursor-pointer ${
+              className={`bg-white border border-blue-100 p-8 hover:border-orange hover:shadow-lg transition group cursor-pointer ${
                 visible ? 'animate-3d-entrance' : 'opacity-0'
               }`}
-              style={{
-                animationDelay: `${index * 0.1}s`,
-              }}
+              style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => navigate(`/services/${service.slug}`)}
             >
-              <div
-                className="text-orange mb-6 transition-transform duration-300"
-                style={{
-                  transform: 'translateZ(25px)',
-                  filter: 'drop-shadow(0 0 10px rgba(255,107,0,0.3))',
-                }}
-              >
+              <div className="text-orange mb-6 group-hover:scale-110 transition">
                 {icons[service.slug]}
               </div>
-              <h3
-                className="text-xl font-black text-white mb-3 tracking-tight uppercase"
-                style={{ transform: 'translateZ(18px)' }}
-              >
+              <h3 className="text-xl font-black text-navy mb-3 tracking-tight uppercase">
                 {service.title}
               </h3>
-              <p
-                className="text-gray-400 mb-6 leading-relaxed"
-                style={{ transform: 'translateZ(12px)' }}
-              >
+              <p className="text-gray-500 mb-6 leading-relaxed">
                 {service.shortDescription}
               </p>
               <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigate(`/services/${service.slug}`);
-                }}
-                className="text-orange hover:text-white font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all uppercase tracking-wider"
-                style={{ transform: 'translateZ(20px)' }}
+                onClick={(e) => { e.stopPropagation(); navigate(`/services/${service.slug}`); }}
+                className="text-orange hover:text-navy font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all uppercase tracking-wider"
               >
                 READ MORE
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
-            </TiltCard>
+            </div>
           ))}
         </div>
       </div>

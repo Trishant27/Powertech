@@ -58,9 +58,9 @@ const Hero = () => {
           background: 'linear-gradient(to right, rgba(10,13,18,0.97) 0%, rgba(10,13,18,0.92) 40%, rgba(10,13,18,0.75) 65%, rgba(10,13,18,0.45) 100%)',
         }}
       />
-      {/* Bottom fade */}
+      {/* Bottom fade to match page background */}
       <div className="absolute bottom-0 left-0 right-0 h-32 z-[1]"
-        style={{ background: 'linear-gradient(to bottom, transparent, #121212)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, #F0F4FF)' }}
       />
 
       <div
