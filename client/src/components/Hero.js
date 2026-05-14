@@ -96,7 +96,7 @@ const Hero = () => {
           >
             PRECISION DG SET<br />
             INSTALLATIONS &<br />
-            <span className="text-orange" style={{ textShadow: '0 0 40px rgba(255,107,0,0.3)' }}>
+            <span style={{ color: '#60A5FA', textShadow: '0 0 40px rgba(96,165,250,0.4)' }}>
               ELECTRICAL MASTERY
             </span>
           </h1>
