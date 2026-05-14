@@ -38,7 +38,7 @@ const ContactForm = () => {
     const message = encodeURIComponent(
       `Hi Powertech,\n\nName: ${formData.name}\nCompany: ${formData.company}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.serviceCategory}\n\nMessage: ${formData.message}`
     );
-    window.open(`https://wa.me/917083964914?text=${message}`, '_blank');
+    window.open(`https://wa.me/919920836944?text=${message}`, '_blank');
   };
 
   const inputClass = "w-full px-4 py-3 bg-charcoal border border-blue-100 text-navy focus:outline-none focus:border-orange transition placeholder-gray-400";
@@ -74,7 +74,7 @@ const ContactForm = () => {
               <div className="space-y-6">
                 {[
                   { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email', content: <a href="mailto:powertechengineer82@gmail.com" className="text-white hover:text-blue-300 transition break-all text-sm">powertechengineer82@gmail.com</a> },
-                  { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Phone', content: <a href="tel:+917083964914" className="text-white hover:text-blue-300 transition">+91 7083964914</a> },
+                  { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Phone', content: <a href="tel:+919920836944" className="text-white hover:text-blue-300 transition">+91 99208 36944</a> },
                   { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Support Hours', content: <><div className="text-white">24/7 Emergency</div><div className="text-gray-400 text-sm">Mon-Sat: 9AM-6PM</div></> },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
