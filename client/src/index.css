@@ -30,14 +30,14 @@ html {
     box-shadow: 0 2px 4px rgba(10,22,40,0.08), 0 8px 24px rgba(10,22,40,0.1);
   }
   .shadow-3d-blue {
-    box-shadow: 0 4px 20px rgba(59,130,246,0.2), 0 0 0 1px rgba(59,130,246,0.1);
+    box-shadow: 0 4px 20px rgba(96,165,250,0.2), 0 0 0 1px rgba(96,165,250,0.1);
   }
   .btn-3d {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .btn-3d:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+    box-shadow: 0 8px 24px rgba(96,165,250,0.3);
   }
   .btn-3d:active {
     transform: translateY(0px);
@@ -45,11 +45,11 @@ html {
 }
 
 ::selection {
-  background-color: #3B82F6;
+  background-color: #60A5FA;
   color: #ffffff;
 }
 ::-moz-selection {
-  background-color: #3B82F6;
+  background-color: #60A5FA;
   color: #ffffff;
 }
 
@@ -100,8 +100,8 @@ html {
 
 /* Input focus */
 input:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
-  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 2px rgba(96,165,250,0.3);
+  border-color: #60A5FA !important;
   outline: none;
 }
 

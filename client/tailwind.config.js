@@ -11,8 +11,8 @@ module.exports = {
         navy: '#0A1628',            // deep navy — headers, footers, dark sections
         darkGrey: '#FFFFFF',        // card backgrounds — pure white
         lightGrey: '#E2E8F0',       // borders, dividers
-        orange: '#3B82F6',          // primary blue accent (keeps all className refs working)
-        lightBlue: '#3B82F6',       // secondary blue for hover states
+        orange: '#60A5FA',          // primary blue accent (keeps all className refs working)
+        lightBlue: '#60A5FA',       // secondary blue for hover states
         skyBlue: '#DBEAFE',         // light blue tint for badges
       },
       fontFamily: {

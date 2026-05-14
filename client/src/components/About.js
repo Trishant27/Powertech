@@ -89,7 +89,7 @@ const About = () => {
               {/* Floating Badge */}
               <div
                 className="absolute -bottom-6 -right-6 bg-orange p-6 animate-badge-float"
-                style={{ background: '#3B82F6', boxShadow: '0 8px 24px rgba(59,130,246,0.4)' }}
+                style={{ background: '#60A5FA', boxShadow: '0 8px 24px rgba(96,165,250,0.4)' }}
               >
                 <div className="text-center">
                   <div

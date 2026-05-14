@@ -83,7 +83,7 @@ const Navbar = () => {
                     display: 'block',
                     height: '2px',
                     width: '100%',
-                    backgroundColor: '#3B82F6',
+                    backgroundColor: '#60A5FA',
                     borderRadius: '1px',
                     transform: activeSection === section ? 'scaleX(1)' : 'scaleX(0)',
                     transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
