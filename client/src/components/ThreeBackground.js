@@ -21,10 +21,10 @@ const ThreeBackground = ({ variant = 'hero', className = '' }) => {
   // Colour palette
   const palette = useMemo(
     () => ({
-      bg: new THREE.Color(0x081425),
-      grid: new THREE.Color(0x1a2a40),
-      orange: new THREE.Color(0xff6b00),
-      cyan: new THREE.Color(0x3a7bff),
+      bg: new THREE.Color(0x0a1628),
+      grid: new THREE.Color(0x1a3a5f),
+      blue: new THREE.Color(0x3b82f6),
+      lightBlue: new THREE.Color(0x60a5fa),
       white: new THREE.Color(0xffffff),
     }),
     []
@@ -60,11 +60,11 @@ const ThreeBackground = ({ variant = 'hero', className = '' }) => {
     const ambient = new THREE.AmbientLight(0x1a2a40, 0.4);
     scene.add(ambient);
 
-    const orangeLight = new THREE.PointLight(0xff6b00, 2, 40);
+    const orangeLight = new THREE.PointLight(0x3b82f6, 2, 40);
     orangeLight.position.set(-5, 5, 3);
     scene.add(orangeLight);
 
-    const blueLight = new THREE.PointLight(0x3a7bff, 1.2, 40);
+    const blueLight = new THREE.PointLight(0x60a5fa, 1.2, 40);
     blueLight.position.set(5, 3, -5);
     scene.add(blueLight);
 
@@ -93,7 +93,7 @@ const ThreeBackground = ({ variant = 'hero', className = '' }) => {
     for (let i = 0; i < shapeCount; i++) {
       const geo = geos[i % geos.length];
       const mat = new THREE.MeshBasicMaterial({
-        color: i % 3 === 0 ? palette.orange : palette.grid,
+        color: i % 3 === 0 ? palette.lightBlue : palette.grid,
         wireframe: true,
         transparent: true,
         opacity: 0.25 + Math.random() * 0.25,
@@ -144,10 +144,10 @@ const ThreeBackground = ({ variant = 'hero', className = '' }) => {
     pGeo.setAttribute('size', new THREE.BufferAttribute(pSizes, 1));
 
     const pMat = new THREE.PointsMaterial({
-      color: 0xff6b00,
+      color: 0x60a5fa,
       size: 0.08,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.5,
       sizeAttenuation: true,
       blending: THREE.AdditiveBlending,
     });
