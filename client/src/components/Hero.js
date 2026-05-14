@@ -44,7 +44,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 z-[1]"
         style={{
-          backgroundImage: 'url("/images/common pages/Frontpagedg.png")',
+          backgroundImage: 'url("/images/common pages/Frontpage.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center right',
           backgroundRepeat: 'no-repeat',
