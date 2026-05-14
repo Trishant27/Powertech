@@ -55,7 +55,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 z-[1]"
         style={{
-          background: 'linear-gradient(to right, rgba(10,13,18,0.82) 0%, rgba(10,13,18,0.72) 40%, rgba(10,13,18,0.50) 65%, rgba(10,13,18,0.20) 100%)',
+          background: 'linear-gradient(to right, rgba(10,13,18,0.57) 0%, rgba(10,13,18,0.47) 40%, rgba(10,13,18,0.25) 65%, rgba(10,13,18,0.00) 100%)',
         }}
       />
       {/* Bottom fade to match page background */}
