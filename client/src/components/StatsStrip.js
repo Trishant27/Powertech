@@ -21,7 +21,7 @@ const StatsStrip = () => {
 
   const stats = [
     {
-      value: '500+',
+      value: '1000+',
       label: 'DG INSTALLS',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
