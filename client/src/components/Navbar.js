@@ -50,18 +50,13 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0">
-            <button onClick={() => scrollToSection('home')} className="flex items-center gap-2">
+            <button onClick={() => scrollToSection('home')} className="flex items-center">
               <img
                 src="/images/icons/Powertech-logo.png"
                 alt="Powertech Logo"
-                className="h-10 w-auto object-contain"
-                style={{ animation: 'logoPulse 3s ease-in-out infinite' }}
+                className="h-12 w-auto object-contain"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
-              <span className="text-2xl font-black tracking-tight">
-                POWER<span className="text-orange">TECH</span>
-                <span className="text-white/50 text-sm font-bold">.co</span>
-              </span>
             </button>
           </div>
 
