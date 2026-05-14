@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useParallax3D from './useParallax3D';
 
 const Footer = () => {
   const footerElRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   const { ref: parallaxRef, style: parallaxStyle } = useParallax3D({
     rotateX: 1,
@@ -190,29 +192,14 @@ const Footer = () => {
             </div>
             <div className="flex gap-6 text-xs text-gray-500 uppercase tracking-wider">
               <button
+                onClick={() => navigate('/privacy-policy')}
                 className="hover:text-orange transition"
-                style={{ transition: 'transform 0.2s, color 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
               >
-                MSDS
+                Privacy Policy
               </button>
-              <button
-                className="hover:text-orange transition"
-                style={{ transition: 'transform 0.2s, color 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
-              >
-                Safety Standards
-              </button>
-              <button
-                className="hover:text-orange transition"
-                style={{ transition: 'transform 0.2s, color 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(5px) scale(1.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(0) scale(1)'; }}
-              >
-                Compliance
-              </button>
+              <button className="hover:text-orange transition">MSDS</button>
+              <button className="hover:text-orange transition">Safety Standards</button>
+              <button className="hover:text-orange transition">Compliance</button>
             </div>
           </div>
         </div>
