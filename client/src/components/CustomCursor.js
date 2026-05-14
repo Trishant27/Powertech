@@ -36,7 +36,7 @@ const CustomCursor = () => {
   }, []);
 
   const ringSize = hovered ? 32 : 20;
-  const ringColor = hovered ? 'rgba(37,99,235,0.7)' : 'rgba(37,99,235,0.5)';
+  const ringColor = hovered ? 'rgba(59,130,246,0.7)' : 'rgba(59,130,246,0.5)';
   const animDuration = hovered ? '0.9s' : '1.6s';
 
   const ringStyle = (delay) => ({
@@ -55,9 +55,9 @@ const CustomCursor = () => {
   });
 
   const dotSize = hovered ? 14 : 8;
-  const dotColor = hovered ? '#2563EB' : '#3B82F6';
+  const dotColor = hovered ? '#3B82F6' : '#3B82F6';
   const dotGlow = hovered
-    ? '0 0 10px 4px rgba(37,99,235,0.4)'
+    ? '0 0 10px 4px rgba(59,130,246,0.4)'
     : '0 0 6px 2px rgba(59,130,246,0.5)';
 
   return (
