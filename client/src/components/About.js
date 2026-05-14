@@ -70,13 +70,14 @@ const About = () => {
                   }}
                 >
                   <svg
-                    className="w-32 h-32 mx-auto text-orange mb-6"
+                    className="w-32 h-32 mx-auto mb-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     strokeWidth={1}
                     style={{
-                      filter: 'drop-shadow(0 0 20px rgba(255,107,0,0.4))',
+                      color: '#60A5FA',
+                      filter: 'drop-shadow(0 0 20px rgba(96,165,250,0.4))',
                     }}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -85,13 +86,10 @@ const About = () => {
                 <div className="text-gray-400 text-sm uppercase tracking-wider">Field Engineer</div>
               </div>
               
-              {/* Floating 3D Badge */}
+              {/* Floating Badge */}
               <div
-                className="absolute -bottom-6 -right-6 bg-orange p-6 shadow-3d-orange animate-badge-float"
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: 'translateZ(40px)',
-                }}
+                className="absolute -bottom-6 -right-6 bg-orange p-6 animate-badge-float"
+                style={{ background: '#1E40AF', boxShadow: '0 8px 24px rgba(30,64,175,0.4)' }}
               >
                 <div className="text-center">
                   <div
@@ -114,12 +112,12 @@ const About = () => {
           {/* Right Column - Content */}
           <div style={{ transformStyle: 'preserve-3d' }}>
             <div
-              className={`inline-flex items-center gap-2 bg-orange/10 border border-orange/30 px-4 py-2 mb-6 ${
+              className={`inline-flex items-center gap-2 bg-blue-900/40 border border-blue-400/30 px-4 py-2 mb-6 ${
                 visible ? 'animate-3d-entrance' : 'opacity-0'
               }`}
               style={{ animationDelay: '0.3s' }}
             >
-              <span className="text-orange font-bold text-xs tracking-wider uppercase">
+              <span className="text-blue-300 font-bold text-xs tracking-wider uppercase">
                 WHY POWERTECH
               </span>
             </div>
@@ -135,7 +133,7 @@ const About = () => {
               }}
             >
               MACHINED EXCELLENCE<br />
-              <span className="text-orange" style={{ textShadow: '0 0 30px rgba(255,107,0,0.25)' }}>
+              <span style={{ color: '#60A5FA', textShadow: '0 0 30px rgba(96,165,250,0.3)' }}>
                 IN EVERY DETAIL
               </span>
             </h2>
@@ -186,16 +184,12 @@ const About = () => {
                   }}
                 >
                   <div
-                    className="flex-shrink-0 w-12 h-12 bg-orange/10 border border-orange/30 flex items-center justify-center transition-transform duration-300"
+                    className="flex-shrink-0 w-12 h-12 bg-blue-900/40 border border-blue-400/30 flex items-center justify-center transition-transform duration-300"
                     style={{ transform: 'translateZ(15px)' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateZ(25px) rotateY(15deg)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateZ(15px) rotateY(0deg)';
-                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateZ(25px) rotateY(15deg)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateZ(15px) rotateY(0deg)'; }}
                   >
-                    <svg className="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <svg className="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                     </svg>
                   </div>
