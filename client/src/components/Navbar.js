@@ -52,10 +52,9 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <button onClick={() => scrollToSection('home')} className="flex items-center">
               <img
-                src="/images/icons/Powertech-logo.png"
+                src="/Powertech-logo.png"
                 alt="Powertech Logo"
                 className="h-12 w-auto object-contain"
-                onError={(e) => { e.target.style.display = 'none'; }}
               />
             </button>
           </div>
