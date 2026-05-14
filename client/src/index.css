@@ -45,11 +45,11 @@ html {
 }
 
 ::selection {
-  background-color: #1E40AF;
+  background-color: #2563EB;
   color: #ffffff;
 }
 ::-moz-selection {
-  background-color: #1E40AF;
+  background-color: #2563EB;
   color: #ffffff;
 }
 
@@ -100,8 +100,8 @@ html {
 
 /* Input focus */
 input:focus, textarea:focus, select:focus {
-  box-shadow: 0 0 0 2px rgba(30,64,175,0.3);
-  border-color: #1E40AF !important;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.3);
+  border-color: #2563EB !important;
   outline: none;
 }
 
