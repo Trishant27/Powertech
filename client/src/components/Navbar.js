@@ -5,7 +5,6 @@ const SECTIONS = ['home', 'services', 'about', 'contact'];
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
 
   // Scroll-based active section detection
   useEffect(() => {
@@ -22,7 +21,6 @@ const Navbar = () => {
         }
       });
       setActiveSection(current);
-      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

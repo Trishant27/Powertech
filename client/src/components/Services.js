@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import services from '../data/servicesData';
-import TiltCard from './TiltCard';
-import useParallax3D from './useParallax3D';
 
 // Icons mapped by slug
 const icons = {
@@ -43,12 +41,6 @@ const Services = () => {
   const navigate = useNavigate();
   const gridRef = useRef(null);
   const [visible, setVisible] = useState(false);
-
-  const { ref: sectionRef, style: sectionStyle } = useParallax3D({
-    rotateX: 2,
-    translateY: 15,
-    speed: 0.6,
-  });
 
   // Intersection observer for staggered entrance
   useEffect(() => {

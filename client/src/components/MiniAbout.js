@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import TiltCard from './TiltCard';
-import useParallax3D from './useParallax3D';
+
 
 const features = [
   {
@@ -49,12 +48,6 @@ const features = [
 const MiniAbout = () => {
   const gridRef = useRef(null);
   const [visible, setVisible] = useState(false);
-
-  const { ref: sectionRef, style: sectionStyle } = useParallax3D({
-    rotateX: 1.5,
-    translateY: 10,
-    speed: 0.5,
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(

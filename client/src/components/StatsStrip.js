@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import TiltCard from './TiltCard';
 
 const StatsStrip = () => {
   const stripRef = useRef(null);
