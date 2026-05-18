@@ -13,8 +13,6 @@ const NAV_ITEMS = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeKey, setActiveKey] = useState('home');
-  const [indicator, setIndicator] = useState({ left: 0, width: 0 });
-  const navRef = useRef(null);
   const btnRefs = useRef({});
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,33 +46,6 @@ const Navbar = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
-
-  // Move the sliding indicator to the active button
-  useEffect(() => {
-    const btn = btnRefs.current[activeKey];
-    const container = navRef.current;
-    if (!btn || !container) return;
-    const btnRect = btn.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-    setIndicator({
-      left: btnRect.left - containerRect.left,
-      width: btnRect.width,
-    });
-  }, [activeKey]);
-
-  // Recalculate on resize
-  useEffect(() => {
-    const recalc = () => {
-      const btn = btnRefs.current[activeKey];
-      const container = navRef.current;
-      if (!btn || !container) return;
-      const btnRect = btn.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
-      setIndicator({ left: btnRect.left - containerRect.left, width: btnRect.width });
-    };
-    window.addEventListener('resize', recalc);
-    return () => window.removeEventListener('resize', recalc);
-  }, [activeKey]);
 
   const handleNav = (item) => {
     if (item.type === 'route') {
@@ -119,35 +90,30 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Desktop Menu with sliding indicator */}
-          <div ref={navRef} className="hidden lg:flex items-center space-x-8 relative pb-1">
+          {/* Desktop Menu with per-button underline */}
+          <div className="hidden lg:flex items-center space-x-8">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.key}
                 ref={(el) => (btnRefs.current[item.key] = el)}
                 onClick={() => handleNav(item)}
-                className={`text-sm font-bold tracking-wider uppercase transition-colors duration-200 ${
+                className={`text-sm font-bold tracking-wider uppercase transition-colors duration-200 flex flex-col items-center gap-1 ${
                   activeKey === item.key ? 'text-orange' : 'text-white/80 hover:text-white'
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                <span style={{
+                  display: 'block',
+                  height: '2px',
+                  width: '100%',
+                  backgroundColor: '#60A5FA',
+                  borderRadius: '1px',
+                  transform: activeKey === item.key ? 'scaleX(1)' : 'scaleX(0)',
+                  transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
+                  transformOrigin: 'center',
+                }} />
               </button>
             ))}
-
-            {/* Single sliding underline */}
-            <span
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: indicator.left,
-                width: indicator.width,
-                height: '2px',
-                backgroundColor: '#60A5FA',
-                borderRadius: '1px',
-                transition: 'left 0.35s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1)',
-                pointerEvents: 'none',
-              }}
-            />
           </div>
 
           {/* Desktop Utility - Right */}
