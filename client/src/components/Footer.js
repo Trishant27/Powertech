@@ -91,10 +91,10 @@ const Footer = () => {
             <h4 className="text-sm font-black uppercase tracking-wider mb-4 text-blue-400">Navigation</h4>
             <ul className="space-y-2">
               {[
-                { label: 'Home',     id: 'home' },
-                { label: 'About Us', id: 'about' },
-                { label: 'Services', id: 'services' },
-                { label: 'Contact',  id: 'contact' },
+                { label: 'Home',       id: 'home' },
+                { label: 'About Us',   id: 'about' },
+                { label: 'Services',   id: 'services' },
+                { label: 'Contact',    id: 'contact' },
               ].map((item) => (
                 <li key={item.id}>
                   <button onClick={() => goToSection(item.id)} className={linkClass}>
@@ -102,6 +102,11 @@ const Footer = () => {
                   </button>
                 </li>
               ))}
+              <li>
+                <button onClick={() => navigate('/clients')} className={linkClass}>
+                  Our Clients
+                </button>
+              </li>
             </ul>
           </div>
 
