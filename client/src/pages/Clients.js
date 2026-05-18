@@ -5,11 +5,11 @@ import Footer from '../components/Footer';
 
 const clients = [
   {
-    name: 'Reliance Digital',
-    logo: '/images/icons/Reliance digital logo.png',
-    description: 'DG set installation and electrical integration for Reliance Digital retail stores across Maharashtra.',
-    industry: 'Retail & Electronics',
-    website: 'https://www.reliancedigital.in',
+    name: 'Reliance Industries',
+    logo: '/images/icons/Reliance industries  logo.png',
+    description: 'DG set installation and electrical integration for Reliance Industries facilities across Maharashtra.',
+    industry: 'Conglomerate & Energy',
+    website: 'https://www.ril.com',
   },
   {
     name: 'NTT',

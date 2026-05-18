@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const logos = [
-  { name: 'Reliance Digital',  src: '/images/icons/Reliance digital logo.png' },
+  { name: 'Reliance Industries', src: '/images/icons/Reliance industries  logo.png' },
   { name: 'NTT',               src: '/images/icons/NTT logo.png' },
   { name: 'Ctrl S',            src: '/images/icons/ctrls logo.png' },
   { name: 'Digital Edge',      src: '/images/icons/Digital edge logo.png' },
