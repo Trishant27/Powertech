@@ -5,8 +5,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const NAV_ITEMS = [
   { key: 'home',     label: 'HOME',     type: 'section' },
   { key: 'services', label: 'SERVICES', type: 'section' },
-  { key: 'about',    label: 'ABOUT',    type: 'section' },
   { key: 'clients',  label: 'CLIENTS',  type: 'route',   path: '/clients' },
+  { key: 'about',    label: 'ABOUT',    type: 'section' },
   { key: 'contact',  label: 'CONTACT',  type: 'section' },
 ];
 
@@ -35,7 +35,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY + triggerOffset;
 
-      // Check if clients-section strip is in view
+      // Check if clients-section strip is in view — comes before about
       const clientsEl = document.getElementById('clients-section');
       if (clientsEl) {
         const top = clientsEl.offsetTop;

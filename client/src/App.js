@@ -22,8 +22,8 @@ const Home = () => (
     <Hero />
     <StatsStrip />
     <Services />
-    <MiniAbout />
     <ClientsStrip />
+    <MiniAbout />
     <About />
     <ContactForm />
     <Footer />
