@@ -27,10 +27,10 @@ const clients = [
   },
   {
     name: 'Digital Edge',
-    logo: 'https://digitaledge.net/wp-content/uploads/2021/03/Digital-Edge-Logo.png',
+    logo: 'https://www.digitaledgedc.com/wp-content/uploads/2021/03/Digital-Edge-Logo.png',
     description: 'Electrical integration and mechanical services supporting Digital Edge data centre infrastructure projects.',
     industry: 'Data Centres & Technology',
-    website: 'https://digitaledge.net',
+    website: 'https://www.digitaledgedc.com',
   },
   {
     name: 'PDG',
