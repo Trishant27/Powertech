@@ -13,6 +13,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Clients from './pages/Clients';
 import CustomCursor from './components/CustomCursor';
 
+import ClientsStrip from './components/ClientsStrip';
+
 // Home page — all sections wrapped in 3D perspective context
 const Home = () => (
   <div className="min-h-screen bg-charcoal perspective-page">
@@ -21,6 +23,7 @@ const Home = () => (
     <StatsStrip />
     <Services />
     <MiniAbout />
+    <ClientsStrip />
     <About />
     <ContactForm />
     <Footer />
