@@ -141,6 +141,31 @@ const Footer = () => {
                   +91 99208 36944
                 </a>
               </li>
+
+              {/* Department emails */}
+              <li className="pt-2 border-t border-white/10">
+                <p className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2">Departments</p>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="mailto:sales@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
+                      <span className="text-blue-400 font-black text-xs uppercase">Sales</span>
+                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">sales@power-tech-engineers.com</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:purchase@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
+                      <span className="text-blue-400 font-black text-xs uppercase">Purchase</span>
+                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">purchase@power-tech-engineers.com</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:hr@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
+                      <span className="text-blue-400 font-black text-xs uppercase">HR</span>
+                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">hr@power-tech-engineers.com</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
               <li>
                 <a
                   href="https://wa.me/919920836944"
