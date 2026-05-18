@@ -34,7 +34,7 @@ const Hero = () => {
     <section
       id="home"
       ref={sectionRef}
-      className="relative bg-navy text-white py-24 md:py-32 lg:py-40 overflow-hidden"
+      className="relative bg-navy text-white py-20 md:py-32 lg:py-40 overflow-hidden min-h-[100svh] flex items-center"
       style={{ transformStyle: 'preserve-3d' }}
     >
       {/* Three.js 3D Background */}
@@ -46,9 +46,9 @@ const Hero = () => {
         style={{
           backgroundImage: 'url("/images/common pages/Frontpage.png")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center right',
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.12,
+          opacity: 0.18,
         }}
       />
       {/* Dark overlay */}

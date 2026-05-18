@@ -160,14 +160,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-charcoal border-t border-white/10">
+        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
           <div className="px-4 pt-2 pb-3 space-y-1">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.key}
                 onClick={() => handleNav(item)}
                 className={`block w-full text-left px-4 py-3 font-bold tracking-wider uppercase text-sm transition ${
-                  activeKey === item.key ? 'text-orange bg-white/5' : 'text-white hover:bg-white/5'
+                  activeKey === item.key ? 'text-orange bg-orange/5' : 'text-gray-900 hover:bg-gray-100'
                 }`}
               >
                 {item.label}

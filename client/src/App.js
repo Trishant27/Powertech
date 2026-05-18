@@ -14,8 +14,6 @@ import Clients from './pages/Clients';
 import MSDS from './pages/MSDS';
 import SafetyStandards from './pages/SafetyStandards';
 import Compliance from './pages/Compliance';
-import CustomCursor from './components/CustomCursor';
-
 import ClientsStrip from './components/ClientsStrip';
 
 // Home page — all sections wrapped in 3D perspective context
@@ -36,7 +34,6 @@ const Home = () => (
 function App() {
   return (
     <BrowserRouter>
-      <CustomCursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
