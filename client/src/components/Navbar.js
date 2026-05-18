@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const SECTIONS = ['home', 'services', 'about', 'contact'];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -18,7 +16,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollY = window.scrollY + triggerOffset;
       let current = 'home';
-      SECTIONS.forEach((id) => {
+      ['home', 'services', 'about', 'contact'].forEach((id) => {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollY) current = id;
       });
@@ -73,7 +71,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            {SECTIONS.map((section) => (
+            {['home', 'services', 'about'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -113,6 +111,28 @@ const Navbar = () => {
                   backgroundColor: '#60A5FA',
                   borderRadius: '1px',
                   transform: isClientsPage ? 'scaleX(1)' : 'scaleX(0)',
+                  transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transformOrigin: 'center',
+                }}
+              />
+            </button>
+
+            {/* Contact — always last */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`text-sm font-bold tracking-wider uppercase transition-all duration-300 flex flex-col items-center gap-1 ${
+                activeSection === 'contact' && !isClientsPage ? 'text-orange' : 'text-white/80 hover:text-white'
+              }`}
+            >
+              <span>contact</span>
+              <span
+                style={{
+                  display: 'block',
+                  height: '2px',
+                  width: '100%',
+                  backgroundColor: '#60A5FA',
+                  borderRadius: '1px',
+                  transform: activeSection === 'contact' && !isClientsPage ? 'scaleX(1)' : 'scaleX(0)',
                   transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
                   transformOrigin: 'center',
                 }}
@@ -158,7 +178,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-charcoal border-t border-white/10">
           <div className="px-4 pt-2 pb-3 space-y-1">
-            {SECTIONS.map((section) => (
+            {['home', 'services', 'about'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -176,6 +196,14 @@ const Navbar = () => {
               }`}
             >
               Clients
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`block w-full text-left px-4 py-3 font-bold tracking-wider uppercase text-sm transition ${
+                activeSection === 'contact' && !isClientsPage ? 'text-orange bg-white/5' : 'text-white hover:bg-white/5'
+              }`}
+            >
+              contact
             </button>
             <button
               onClick={() => scrollToSection('contact')}
