@@ -11,6 +11,9 @@ import Footer from './components/Footer';
 import ServiceDetail from './pages/ServiceDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Clients from './pages/Clients';
+import MSDS from './pages/MSDS';
+import SafetyStandards from './pages/SafetyStandards';
+import Compliance from './pages/Compliance';
 import CustomCursor from './components/CustomCursor';
 
 import ClientsStrip from './components/ClientsStrip';
@@ -39,6 +42,9 @@ function App() {
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/clients" element={<Clients />} />
+        <Route path="/msds" element={<MSDS />} />
+        <Route path="/safety-standards" element={<SafetyStandards />} />
+        <Route path="/compliance" element={<Compliance />} />
       </Routes>
     </BrowserRouter>
   );

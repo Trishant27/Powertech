@@ -168,9 +168,15 @@ const Footer = () => {
               <button onClick={() => navigate('/privacy-policy')} className="hover:text-orange transition">
                 Privacy Policy
               </button>
-              <button className="hover:text-orange transition">MSDS</button>
-              <button className="hover:text-orange transition">Safety Standards</button>
-              <button className="hover:text-orange transition">Compliance</button>
+              <button onClick={() => navigate('/msds')} className="hover:text-orange transition">
+                MSDS
+              </button>
+              <button onClick={() => navigate('/safety-standards')} className="hover:text-orange transition">
+                Safety Standards
+              </button>
+              <button onClick={() => navigate('/compliance')} className="hover:text-orange transition">
+                Compliance
+              </button>
             </div>
           </div>
         </div>
