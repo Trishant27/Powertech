@@ -34,6 +34,18 @@ const Navbar = () => {
 
     const handleScroll = () => {
       const scrollY = window.scrollY + triggerOffset;
+
+      // Check if clients-section strip is in view
+      const clientsEl = document.getElementById('clients-section');
+      if (clientsEl) {
+        const top = clientsEl.offsetTop;
+        const bottom = top + clientsEl.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+          setActiveKey('clients');
+          return;
+        }
+      }
+
       let current = 'home';
       ['home', 'services', 'about', 'contact'].forEach((id) => {
         const el = document.getElementById(id);

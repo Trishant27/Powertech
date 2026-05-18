@@ -15,7 +15,7 @@ const ClientsStrip = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-white border-y border-blue-100 py-14">
+    <section className="bg-white border-y border-blue-100 py-14" id="clients-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
