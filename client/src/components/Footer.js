@@ -147,21 +147,18 @@ const Footer = () => {
                 <p className="text-xs text-gray-500 uppercase tracking-wider font-bold mb-2">Departments</p>
                 <ul className="space-y-2">
                   <li>
-                    <a href="mailto:sales@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
-                      <span className="text-blue-400 font-black text-xs uppercase">Sales</span>
-                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">sales@power-tech-engineers.com</span>
+                    <a href="mailto:sales@power-tech-engineers.com" className={linkClass}>
+                      Sales
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:purchase@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
-                      <span className="text-blue-400 font-black text-xs uppercase">Purchase</span>
-                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">purchase@power-tech-engineers.com</span>
+                    <a href="mailto:purchase@power-tech-engineers.com" className={linkClass}>
+                      Purchase
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:hr@power-tech-engineers.com" className={linkClass + ' flex items-center gap-2 group'}>
-                      <span className="text-blue-400 font-black text-xs uppercase">HR</span>
-                      <span className="text-gray-500 text-xs group-hover:text-orange transition truncate">hr@power-tech-engineers.com</span>
+                    <a href="mailto:hr@power-tech-engineers.com" className={linkClass}>
+                      HR
                     </a>
                   </li>
                 </ul>
