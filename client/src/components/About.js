@@ -63,7 +63,7 @@ const About = () => {
             <div className="relative border border-white/10 aspect-square overflow-hidden shadow-3d">
               {/* Field Engineer Image */}
               <img
-                src="/images/common pages/field-engineer.png"
+                src="/images/field-engineer.png"
                 alt="Powertech Field Engineer"
                 className="w-full h-full object-cover object-center"
               />
