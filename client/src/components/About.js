@@ -60,32 +60,14 @@ const About = () => {
               transformStyle: 'preserve-3d',
             }}
           >
-            <div className="relative bg-darkGrey border border-white/10 p-8 aspect-square flex items-center justify-center shadow-3d">
-              {/* Rotating 3D wireframe gear icon */}
-              <div className="text-center" style={{ transformStyle: 'preserve-3d' }}>
-                <div
-                  style={{
-                    animation: 'floatZ 6s ease-in-out infinite',
-                    transformStyle: 'preserve-3d',
-                  }}
-                >
-                  <svg
-                    className="w-32 h-32 mx-auto mb-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1}
-                    style={{
-                      color: '#60A5FA',
-                      filter: 'drop-shadow(0 0 20px rgba(96,165,250,0.4))',
-                    }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <div className="text-gray-400 text-sm uppercase tracking-wider">Field Engineer</div>
-              </div>
-              
+            <div className="relative border border-white/10 aspect-square overflow-hidden shadow-3d">
+              {/* Field Engineer Image */}
+              <img
+                src="/images/common pages/Field Engineer.png"
+                alt="Powertech Field Engineer"
+                className="w-full h-full object-cover object-center"
+              />
+
               {/* Floating Badge */}
               <div
                 className="absolute -bottom-6 -right-6 bg-orange p-6 animate-badge-float"
